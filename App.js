@@ -1,20 +1,29 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from 'react-native-screens/native-stack';
+import Splash from './components/Splash';
+import Index from './components/Index';
+import Login from './components/Login-Cadastrar/Login'
+import Cadastrar from './components/Login-Cadastrar/Cadastrar';
+import Home from './components/Home/Home';
+import BalanceScreen from './components/Home/BalanceScreen/BalanceScreen';
 
-export default function App() {
+const Stack = createNativeStackNavigator();
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='splash'>
+        <Stack.Screen name="index" component={Index} options={{headerShown:false}} />
+        <Stack.Screen name="splash" component={Splash} options={{headerShown:false}} />
+        <Stack.Screen name="login" component={Login} options={{headerShown:false}} />
+        <Stack.Screen name="cadastrar" component={Cadastrar} options={{headerShown:false}} />
+        <Stack.Screen name="home" component={Home} options={{headerShown:false}} />
+        <Stack.Screen name="balance_screen" component={BalanceScreen} options={{headerShown:false}} />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default App;
