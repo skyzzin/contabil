@@ -37,6 +37,8 @@ const Login = () => {
 
   return (
     <View style={styles.display}>
+      
+      <Image style={styles.iconlogin} source={require('../assets/iconlogin')} />     
       <Image style={styles.bg} source={require('../../assets/BG.png')} />
       <ButtonBack route={"index"} />
       <StatusLine steps={2} />
@@ -51,7 +53,7 @@ const Login = () => {
         <TextInput
           style={styles.input}
           onChangeText={(text) => setPassword(text)}
-          value={password}
+          placeholder=''
           secureTextEntry={true}
         />
         <TouchableOpacity>
@@ -80,18 +82,21 @@ const styles = StyleSheet.create({
     height: '100%',
     position: 'absolute'
   },
+
   input:{
-    width:300,
+    width:350,
     padding:10,
     height:60,
-    borderRadius:15,
-    backgroundColor:'#fafafa',
+    color: 'black',
+    backgroundColor: 'white',
+    borderRadius: 10,
   },
   label:{
-    color:'#754afc',
+    color:'white',
     marginLeft:5,
     marginBottom:5,
-    fontSize:16
+    fontSize:16,
+    paddingTop: 20,
   },
   textTouchable:{
     color:"#fafafa",
